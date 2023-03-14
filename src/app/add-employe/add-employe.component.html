@@ -1,0 +1,56 @@
+<h1 mat-dialog-title>Add Employee Form</h1>
+<form [formGroup]="myform" (ngSubmit)="addUser()">
+   
+    <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstnames" matInput type="text" name="firstName" id="firstName" >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+        <input formControlName="lastnames" matInput type="text" name="LastName" id="LastName" >
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+            <input formControlName="emails" matInput type="text" name="email" id="email" >
+          </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+    <mat-label>Phone</mat-label>
+        <input formControlName="contactNumbers" matInput type="number" name="contactNumber" id="contactNumber" >
+        </mat-form-field>
+        <mat-form-field>
+            <div>
+              <mat-toolbar>
+                <input matInput  [value]="selectedFileNames.length ? selectedFileNames : 'Select Images'" />
+          
+               
+              </mat-toolbar>
+          
+              <input
+              formControlName="imageUrl"
+                type="file"
+                id="imageUrl"
+                name="imageUrl"
+                accept="image/*" multiple 
+                (change)="selectFiles($event)"
+              />
+            </div>
+          </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Choose a date</mat-label>
+    <input formControlName="dobs" matInput [matDatepicker]="picker" name="dob" id="dob">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+       
+        <input  type="submit" value="Send" >
+    </div>
+  
+</form>
+
+
+
+
